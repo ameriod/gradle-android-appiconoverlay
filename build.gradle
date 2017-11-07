@@ -1,6 +1,7 @@
 buildscript {
     repositories {
         jcenter()
+        google()
     }
 }
 
@@ -17,38 +18,39 @@ apply plugin: 'maven-publish'
 dependencies {
     repositories {
         mavenCentral()
+        google()
     }
 
     compile gradleApi()
     compile localGroovy()
-    compile 'com.android.tools.build:gradle:1.0.+'
+    compile 'com.android.tools.build:gradle:3.0.0'
 }
 
-bintray {
-    user = bintray_user
-    key = bintray_api_key
-
-    publications = ['main']
-
-    dryRun = false
-    publish = false /* need to publish new version manually on https://bintray.com/splatte/maven/gradle-android-appiconoverlay */
-
-    pkg {
-        repo = 'maven'
-        name = 'gradle-android-appiconoverlay'
-        desc = 'Plugin for Android Gradle to automatically overlay the app icon with information about the current build.'
-        websiteUrl = 'https://github.com/splatte/gradle-android-appiconoverlay'
-        issueTrackerUrl = 'https://github.com/splatte/gradle-android-appiconoverlay'
-        vcsUrl = 'https://github.com/splatte/gradle-android-appiconoverlay'
-        licenses = ['Apache-2.0']
-        labels = ['android', 'gradle', 'app', 'icon', 'build']
-        publicDownloadNumbers = false
-
-        version {
-            name = '1.3'
-        }
-    }
-}
+//bintray {
+//    user = bintray_user
+//    key = bintray_api_key
+//
+//    publications = ['main']
+//
+//    dryRun = false
+//    publish = false /* need to publish new version manually on https://bintray.com/splatte/maven/gradle-android-appiconoverlay */
+//
+//    pkg {
+//        repo = 'maven'
+//        name = 'gradle-android-appiconoverlay'
+//        desc = 'Plugin for Android Gradle to automatically overlay the app icon with information about the current build.'
+//        websiteUrl = 'https://github.com/splatte/gradle-android-appiconoverlay'
+//        issueTrackerUrl = 'https://github.com/splatte/gradle-android-appiconoverlay'
+//        vcsUrl = 'https://github.com/splatte/gradle-android-appiconoverlay'
+//        licenses = ['Apache-2.0']
+//        labels = ['android', 'gradle', 'app', 'icon', 'build']
+//        publicDownloadNumbers = false
+//
+//        version {
+//            name = '1.3'
+//        }
+//    }
+//}
 
 tasks.withType(JavaCompile) {
     sourceCompatibility = '1.7'
